@@ -1,0 +1,24 @@
+{
+  "name": "notion-api-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CStilidis/notion-api-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CStilidis/notion-api-test/issues"
+  },
+  "homepage": "https://github.com/CStilidis/notion-api-test#readme",
+  "dependencies": {
+    "@notionhq/client": "^0.4.12",
+    "dotenv": "^10.0.0"
+  }
+}
