@@ -5,10 +5,29 @@ const { Client } = require("@notionhq/client");
 // this line initializes the Notion Client using our key
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const databaseId = process.env.NOTION_API_DATABASE;
-const getDatabase = async () => {
+
+//Test the API connection
+// const getDatabase = async () => {
+//   const response = await notion.databases.query({ database_id: databaseId });
+
+//   console.log(response);
+// };
+
+// getDatabase();
+
+//look into Object array items
+getDatabase = async () => {
   const response = await notion.databases.query({ database_id: databaseId });
 
-  console.log(response);
-};
+  const responseResults = response.results.map((page) => {
+    return {
+      id: page.id,
+      name: page.properties.Name.title[0]?.plain_text,
+      role: page.properties.Role.rich_text[0]?.plain_text,
+    };
+  });
 
-getDatabase();
+  // this console.log is just so you can see what we're getting here
+  console.log(responseResults);
+  return responseResults;
+};
